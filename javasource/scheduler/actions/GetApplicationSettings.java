@@ -33,13 +33,12 @@ public class GetApplicationSettings extends CustomJavaAction<IMendixObject>
 		
 		IContext context = Core.createSystemContext();
 		try {
-			context.startTransaction();
 			List<IMendixObject> result = Core.retrieveXPathQuery(context, "//" + ApplicationSettings.entityName);
 			if( result.size() > 0 ) {
-				context.endTransaction();
 				return result.get(0);
 			}
 			
+			context.startTransaction();			
 			IMendixObject settings = Core.instantiate(context, ApplicationSettings.entityName);
 			Core.commit(context, settings);
 			context.endTransaction();
