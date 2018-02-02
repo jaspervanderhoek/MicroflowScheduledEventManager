@@ -13,18 +13,18 @@ import scheduler.impl.ScheduleManager;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
-public class ShutdownScheduler extends CustomJavaAction<Boolean>
+public class ShutdownScheduler extends CustomJavaAction<java.lang.Boolean>
 {
-	private Boolean WaitForJobsToComplete;
+	private java.lang.Boolean WaitForJobsToComplete;
 
-	public ShutdownScheduler(IContext context, Boolean WaitForJobsToComplete)
+	public ShutdownScheduler(IContext context, java.lang.Boolean WaitForJobsToComplete)
 	{
 		super(context);
 		this.WaitForJobsToComplete = WaitForJobsToComplete;
 	}
 
 	@Override
-	public Boolean executeAction() throws Exception
+	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 
@@ -38,7 +38,7 @@ public class ShutdownScheduler extends CustomJavaAction<Boolean>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "ShutdownScheduler";
 	}

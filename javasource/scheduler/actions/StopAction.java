@@ -14,7 +14,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class StopAction extends CustomJavaAction<Boolean>
+public class StopAction extends CustomJavaAction<java.lang.Boolean>
 {
 	private IMendixObject __ScheduledActionParameter1;
 	private scheduler.proxies.ScheduledAction ScheduledActionParameter1;
@@ -26,7 +26,7 @@ public class StopAction extends CustomJavaAction<Boolean>
 	}
 
 	@Override
-	public Boolean executeAction() throws Exception
+	public java.lang.Boolean executeAction() throws Exception
 	{
 		this.ScheduledActionParameter1 = __ScheduledActionParameter1 == null ? null : scheduler.proxies.ScheduledAction.initialize(getContext(), __ScheduledActionParameter1);
 
@@ -42,7 +42,7 @@ public class StopAction extends CustomJavaAction<Boolean>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "StopAction";
 	}

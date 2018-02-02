@@ -20,18 +20,18 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
 
-public class AquireAdministrativeLock extends CustomJavaAction<Boolean>
+public class AquireAdministrativeLock extends CustomJavaAction<java.lang.Boolean>
 {
-	private Long TimeoutMS;
+	private java.lang.Long TimeoutMS;
 
-	public AquireAdministrativeLock(IContext context, Long TimeoutMS)
+	public AquireAdministrativeLock(IContext context, java.lang.Long TimeoutMS)
 	{
 		super(context);
 		this.TimeoutMS = TimeoutMS;
 	}
 
 	@Override
-	public Boolean executeAction() throws Exception
+	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		IContext context = Core.createSystemContext();
@@ -83,7 +83,7 @@ public class AquireAdministrativeLock extends CustomJavaAction<Boolean>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "AquireAdministrativeLock";
 	}

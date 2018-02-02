@@ -17,7 +17,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
 
-public class ReleaseAdministrativeLock extends CustomJavaAction<Boolean>
+public class ReleaseAdministrativeLock extends CustomJavaAction<java.lang.Boolean>
 {
 	public ReleaseAdministrativeLock(IContext context)
 	{
@@ -25,7 +25,7 @@ public class ReleaseAdministrativeLock extends CustomJavaAction<Boolean>
 	}
 
 	@Override
-	public Boolean executeAction() throws Exception
+	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		IContext context = Core.createSystemContext();
@@ -65,7 +65,7 @@ public class ReleaseAdministrativeLock extends CustomJavaAction<Boolean>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "ReleaseAdministrativeLock";
 	}

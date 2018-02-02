@@ -21,7 +21,7 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
 
-public class EvaluateInstruction extends CustomJavaAction<Boolean>
+public class EvaluateInstruction extends CustomJavaAction<java.lang.Boolean>
 {
 	private IMendixObject __JobInstructionParameter1;
 	private scheduler.proxies.JobInstruction JobInstructionParameter1;
@@ -33,7 +33,7 @@ public class EvaluateInstruction extends CustomJavaAction<Boolean>
 	}
 
 	@Override
-	public Boolean executeAction() throws Exception
+	public java.lang.Boolean executeAction() throws Exception
 	{
 		this.JobInstructionParameter1 = __JobInstructionParameter1 == null ? null : scheduler.proxies.JobInstruction.initialize(getContext(), __JobInstructionParameter1);
 
@@ -118,7 +118,7 @@ public class EvaluateInstruction extends CustomJavaAction<Boolean>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "EvaluateInstruction";
 	}

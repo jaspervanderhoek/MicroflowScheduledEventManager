@@ -13,7 +13,7 @@ import scheduler.impl.ScheduleManager;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
-public class InitializeScheduler extends CustomJavaAction<String>
+public class InitializeScheduler extends CustomJavaAction<java.lang.String>
 {
 	public InitializeScheduler(IContext context)
 	{
@@ -21,7 +21,7 @@ public class InitializeScheduler extends CustomJavaAction<String>
 	}
 
 	@Override
-	public String executeAction() throws Exception
+	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		
@@ -34,7 +34,7 @@ public class InitializeScheduler extends CustomJavaAction<String>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "InitializeScheduler";
 	}

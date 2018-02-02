@@ -12,7 +12,7 @@ package test.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
-public class ThrowException extends CustomJavaAction<Boolean>
+public class ThrowException extends CustomJavaAction<java.lang.Boolean>
 {
 	public ThrowException(IContext context)
 	{
@@ -20,7 +20,7 @@ public class ThrowException extends CustomJavaAction<Boolean>
 	}
 
 	@Override
-	public Boolean executeAction() throws Exception
+	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		throw new com.mendix.systemwideinterfaces.MendixRuntimeException("Java action was not implemented");
@@ -31,7 +31,7 @@ public class ThrowException extends CustomJavaAction<Boolean>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "ThrowException";
 	}

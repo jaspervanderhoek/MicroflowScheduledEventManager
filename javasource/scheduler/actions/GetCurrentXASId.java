@@ -13,7 +13,7 @@ import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
-public class GetCurrentXASId extends CustomJavaAction<String>
+public class GetCurrentXASId extends CustomJavaAction<java.lang.String>
 {
 	public GetCurrentXASId(IContext context)
 	{
@@ -21,7 +21,7 @@ public class GetCurrentXASId extends CustomJavaAction<String>
 	}
 
 	@Override
-	public String executeAction() throws Exception
+	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
 		return Core.getXASId();
@@ -32,7 +32,7 @@ public class GetCurrentXASId extends CustomJavaAction<String>
 	 * Returns a string representation of this action
 	 */
 	@Override
-	public String toString()
+	public java.lang.String toString()
 	{
 		return "GetCurrentXASId";
 	}
