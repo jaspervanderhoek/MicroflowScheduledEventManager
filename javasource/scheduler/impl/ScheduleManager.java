@@ -2,9 +2,11 @@ package scheduler.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.quartz.CronExpression;
@@ -153,18 +155,25 @@ public class ScheduleManager {
 
 	private void intitialize() {
 		_logNodeCore.info("Scheduling Scheduler.SE_SchedulerMaintenance every 5 minutes, starting now");
-		Core.scheduleAtFixedRate("Scheduler.SE_SchedulerMaintenance", new Date(), 5, TimeUnit.MINUTES, "SchedulerMaintenance",
+		
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.SECOND, 6);
+		
+		Core.scheduleAtFixedRate("Scheduler.SE_SchedulerMaintenance", cal.getTime(), 5, TimeUnit.MINUTES, "SchedulerMaintenance",
 				"This action runs every 5 minutes and evaluates and cleans up all action information");
 
+		cal.add(Calendar.SECOND, 2);
 		_logNodeCore.info("Scheduling Scheduler.SE_EvaluateOpenInstructions every 10 seconds, starting now");
 		Core.scheduleAtFixedRate(
 				"Scheduler.SE_EvaluateOpenInstructions",
-				new Date(),
+				cal.getTime(),
 				10,
 				TimeUnit.SECONDS,
 				"EvaluateJobInstruction",
 				"Evaluate all action instructions and make sure that clustermanager executes all actions, or in case of an instance specific action it will also trigger that event.");
 
+		
+		
 		/*
 		 * Peace of code that is never going to be executed (running status is never null),
 		 * this is just here to get compile errors incase somebody renames the actions
