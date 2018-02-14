@@ -37,6 +37,8 @@ import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
+import aQute.bnd.service.action.Action;
+
 public class ScheduleManager {
 
 	private static ScheduleManager _instance;
@@ -376,7 +378,12 @@ public class ScheduleManager {
 
 			// Schedule the job with the trigger
 			this.sch.deleteJob(config.getJobKey());
-
+			
+			ActionMonitor monitor = action.getActionMonitor_ScheduledAction();
+			monitor.setNextFireTime(null);
+			monitor.setScheduledFireTime(null);
+			Core.commit(Core.createSystemContext(), monitor.getMendixObject());
+			
 			_logNodeCore.trace("Job successfully Stopped \r\nJob: " + config.getJobKey() + "\r\nTrigger: " + config.getTriggerKey());
 		}
 		else
@@ -390,6 +397,10 @@ public class ScheduleManager {
 		if ( action.getAdvanced() )
 			return expression;
 
+		return buildCronExpression(action);
+	}
+	
+	public static String buildCronExpression( ScheduledAction action ) throws CoreException, ParseException { 
 		if ( action.getStartDateTime() == null )
 			throw new CoreException("Please specifiy the start date and time");
 
@@ -513,7 +524,7 @@ public class ScheduleManager {
 			throw new ParseException("Not implemented ", 2);
 		}
 
-		expression = second + " " + minute + " " + hour + " " + day + " " + month + " " + dayOfWeek + " " + year;
+		String expression = second + " " + minute + " " + hour + " " + day + " " + month + " " + dayOfWeek + " " + year;
 		_logNodeCore.debug("Created expression " + expression + " for Job " + action.getInternalId());
 
 		return expression;
