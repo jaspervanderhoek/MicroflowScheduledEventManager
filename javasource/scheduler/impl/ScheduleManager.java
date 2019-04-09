@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.quartz.CronExpression;
@@ -24,20 +23,18 @@ import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
 import org.quartz.impl.StdSchedulerFactory;
 
-import scheduler.proxies.ActionMonitor;
-import scheduler.proxies.Group;
-import scheduler.proxies.RuntimeInstance;
-import scheduler.proxies.ScheduledAction;
-import scheduler.proxies.YesNo;
-import scheduler.proxies.microflows.Microflows;
-
 import com.mendix.core.Core;
 import com.mendix.core.CoreException;
 import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-import aQute.bnd.service.action.Action;
+import scheduler.proxies.ActionMonitor;
+import scheduler.proxies.Group;
+import scheduler.proxies.RuntimeInstance;
+import scheduler.proxies.ScheduledAction;
+import scheduler.proxies.YesNo;
+import scheduler.proxies.microflows.Microflows;
 
 public class ScheduleManager {
 
