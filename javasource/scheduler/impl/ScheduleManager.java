@@ -153,10 +153,11 @@ public class ScheduleManager {
 	}
 
 	private void intitialize() {
-		_logNodeCore.info("Scheduling Scheduler.SE_SchedulerMaintenance every 5 minutes, starting now");
+		int delay = (int) Math.ceil(6 + (Math.random() * 14));  //Minimum wait of 7 seconds before starting, max 20
+		_logNodeCore.info("Scheduling Scheduler.SE_SchedulerMaintenance every 5 minutes, starting in " + delay + " seconds");
 		
 		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.SECOND, 6);
+		cal.add(Calendar.SECOND, delay);
 		
 		Core.scheduleAtFixedRate("Scheduler.SE_SchedulerMaintenance", cal.getTime(), 5, TimeUnit.MINUTES, "SchedulerMaintenance",
 				"This action runs every 5 minutes and evaluates and cleans up all action information");
