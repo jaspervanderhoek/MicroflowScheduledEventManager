@@ -23,7 +23,7 @@ public class ShutdownScheduler extends CustomJavaAction<java.lang.Boolean>
 		this.WaitForJobsToComplete = WaitForJobsToComplete;
 	}
 
-	@Override
+	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
@@ -37,7 +37,7 @@ public class ShutdownScheduler extends CustomJavaAction<java.lang.Boolean>
 	/**
 	 * Returns a string representation of this action
 	 */
-	@Override
+	@java.lang.Override
 	public java.lang.String toString()
 	{
 		return "ShutdownScheduler";

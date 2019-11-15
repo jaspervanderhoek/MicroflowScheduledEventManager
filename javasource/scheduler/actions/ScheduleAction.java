@@ -9,17 +9,10 @@
 
 package scheduler.actions;
 
-import org.quartz.JobBuilder;
-import org.quartz.JobDetail;
-import org.quartz.SimpleScheduleBuilder;
-import org.quartz.SimpleTrigger;
-import org.quartz.Trigger;
-import org.quartz.TriggerBuilder;
-import scheduler.impl.ScheduleManager;
-import scheduler.impl.ScheduledJob;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
+import scheduler.impl.ScheduleManager;
 
 public class ScheduleAction extends CustomJavaAction<java.lang.Boolean>
 {
@@ -32,7 +25,7 @@ public class ScheduleAction extends CustomJavaAction<java.lang.Boolean>
 		this.__ScheduledActionParameter1 = ScheduledActionParameter1;
 	}
 
-	@Override
+	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		this.ScheduledActionParameter1 = __ScheduledActionParameter1 == null ? null : scheduler.proxies.ScheduledAction.initialize(getContext(), __ScheduledActionParameter1);
@@ -48,7 +41,7 @@ public class ScheduleAction extends CustomJavaAction<java.lang.Boolean>
 	/**
 	 * Returns a string representation of this action
 	 */
-	@Override
+	@java.lang.Override
 	public java.lang.String toString()
 	{
 		return "ScheduleAction";

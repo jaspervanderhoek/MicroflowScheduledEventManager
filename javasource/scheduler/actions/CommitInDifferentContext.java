@@ -9,11 +9,10 @@
 
 package scheduler.actions;
 
-import scheduler.proxies.ApplicationSettings;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.webui.CustomJavaAction;
 
 public class CommitInDifferentContext extends CustomJavaAction<java.lang.Boolean>
 {
@@ -25,7 +24,7 @@ public class CommitInDifferentContext extends CustomJavaAction<java.lang.Boolean
 		this.MyObject = MyObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		// BEGIN USER CODE
@@ -50,7 +49,7 @@ public class CommitInDifferentContext extends CustomJavaAction<java.lang.Boolean
 	/**
 	 * Returns a string representation of this action
 	 */
-	@Override
+	@java.lang.Override
 	public java.lang.String toString()
 	{
 		return "CommitInDifferentContext";

@@ -32,7 +32,7 @@ public class EvaluateInstruction extends CustomJavaAction<java.lang.Boolean>
 		this.__JobInstructionParameter1 = JobInstructionParameter1;
 	}
 
-	@Override
+	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		this.JobInstructionParameter1 = __JobInstructionParameter1 == null ? null : scheduler.proxies.JobInstruction.initialize(getContext(), __JobInstructionParameter1);
@@ -43,8 +43,10 @@ public class EvaluateInstruction extends CustomJavaAction<java.lang.Boolean>
 		ScheduledAction action = this.JobInstructionParameter1.getJobInstruction_ScheduledAction(sysContext);
 		if ( action == null && this.JobInstructionParameter1.getActionId() != null ) {
 			
-			List<IMendixObject> result = Core.retrieveXPathQueryEscaped(sysContext, "//%s[%s=%s]", ScheduledAction.entityName,
-					ScheduledAction.MemberNames.InternalId.toString(), String.valueOf(this.JobInstructionParameter1.getActionId()));
+			List<IMendixObject> result = Core.createXPathQuery( 
+					String.format("//%s[%s=$actionid]", ScheduledAction.entityName,
+					ScheduledAction.MemberNames.InternalId.toString())
+					).setVariable("actionid", this.JobInstructionParameter1.getActionId()).execute(sysContext);;
 
 			if ( result.size() > 0 ) {
 				action = ScheduledAction.initialize(getContext(), result.get(0));
@@ -117,7 +119,7 @@ public class EvaluateInstruction extends CustomJavaAction<java.lang.Boolean>
 	/**
 	 * Returns a string representation of this action
 	 */
-	@Override
+	@java.lang.Override
 	public java.lang.String toString()
 	{
 		return "EvaluateInstruction";

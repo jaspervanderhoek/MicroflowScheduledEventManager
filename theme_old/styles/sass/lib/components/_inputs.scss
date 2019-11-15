@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Inputs
+========================================================================== */
+.form-control {
+	-moz-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+	box-shadow:	none;
+	display: block;
+	padding: 8px;
+	width: 100%;
+	height: 32px;
+	border: 1px solid $brand-default-dark;
+	border-radius: 3px;
+	background-color: $brand-default-lighter;
+	background-image: none;
+	color: $text-dark;
+	font-size: 12px;
+	line-height: $line-height-base;
+}
+.form-control:focus {
+	border-color: $brand-info;
+	background-color: $brand-info-lighter;
+	outline: 0;
+}
+textarea.form-control {
+	height: auto;
+}
+
+.form-control-static {
+	overflow: hidden;
+	min-height: auto;
+	
+	padding-top: 8;
+	padding-bottom: 8;
+	font-size: 12px;
+	line-height: $line-height-base;
+}
+/* Not editable textarea, textarea will be rendered as a label */
+.mx-textarea label {
+	height: auto;
+}
+
+
+
+/* ==========================================================================
+   Group with label and input
+========================================================================== */
+/* Input and textarea get properly aligned */
+.form-group div[class*='textBox'] > label,
+.form-group div[class*='textArea'] > label,
+.form-group div[class*='datePicker'] > label {
+	@extend .form-control-static;
+}
+.form-group {
+	margin-bottom: 10px;
+	[class*='col-'] {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+.form-group .control-label {
+	color: $text-dark;	
+	font-size: 12px;
+	font-weight: 600;	
+}
+.form-horizontal {
+	@media (min-width: $screen-sm){
+		.control-label {
+			line-height: $line-height-base;
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+	}
+}
+
+/* ==========================================================================
+   Inputs Readonly
+========================================================================== */
+// Deprecated (should not be needed anymore with new form groups)
+
+// .readonly-input {
+// 	@extend .form-control;
+// 	height: auto;
+// 	min-height: 33px;
+// 	background-color: $form-input-bg-disabled !important;
+// 	label { 
+// 		padding: 0 !important;
+// 	}
+// 	textarea {
+// 		display: none;
+// 	}
+// }
+// .readonly-input-alert label {
+// 	color: $brand-danger;
+// }
+// /* Needed for IE8, IE8 doesn't respect border-box and min-height */
+// .dj_ie8 .readonly-input {
+// 	min-height: auto;
+// }
+
+
+
+/* ==========================================================================
+   Inputs File Upload
+========================================================================== */
+.mx-fileinput {
+	.mx-wrapped-label {
+		display: inline-block;
+		width: 200px;
+	}
+	/* File input widget hover fix */
+	.mx-wrapped-form {
+		.mx-wrapped-input {
+			cursor: pointer;
+		}
+		.mx-fileinput-upload-button:hover {
+			background-color: $brand-default-dark;
+		}
+	}
+}

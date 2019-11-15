@@ -25,7 +25,7 @@ public class StopAction extends CustomJavaAction<java.lang.Boolean>
 		this.__ScheduledActionParameter1 = ScheduledActionParameter1;
 	}
 
-	@Override
+	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
 		this.ScheduledActionParameter1 = __ScheduledActionParameter1 == null ? null : scheduler.proxies.ScheduledAction.initialize(getContext(), __ScheduledActionParameter1);
@@ -41,7 +41,7 @@ public class StopAction extends CustomJavaAction<java.lang.Boolean>
 	/**
 	 * Returns a string representation of this action
 	 */
-	@Override
+	@java.lang.Override
 	public java.lang.String toString()
 	{
 		return "StopAction";

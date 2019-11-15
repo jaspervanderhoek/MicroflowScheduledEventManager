@@ -86,11 +86,9 @@ public class ScheduleManager {
 				this.hasGroupAssignment = true;
 			}
 
-			mxmodelreflection.proxies.Microflows mf = action.getScheduledAction_Microflows();
-			if ( mf == null )
+			this.microflowName = action.getMicroflowName();
+			if ( this.microflowName == null || "".equals(this.microflowName.trim()) )
 				throw new CoreException("No microflow assigned to action: " + action.getInternalId() + "-" + action.getName());
-
-			this.microflowName = mf.getCompleteName();
 		}
 
 
@@ -200,8 +198,8 @@ public class ScheduleManager {
 			this.sch.getListenerManager().addJobListener(new MxSchedulerListener());
 
 			IContext context = Core.createSystemContext();
-			List<IMendixObject> result = Core.retrieveXPathQueryEscaped(context, "//%s[%s='%s']", RuntimeInstance.getType(),
-					RuntimeInstance.MemberNames.XASId.toString(), Core.getXASId());
+			List<IMendixObject> result = Core.createXPathQuery(String.format("//%s[%s='$xasid']", RuntimeInstance.getType(),
+					RuntimeInstance.MemberNames.XASId.toString()) ).setVariable("xasid", Core.getXASId()).execute(context);
 			if ( result.size() > 0 ) {
 				IMendixObject obj = result.get(0);
 				obj.setValue(context, RuntimeInstance.MemberNames.RequiresRestart.toString(), false);

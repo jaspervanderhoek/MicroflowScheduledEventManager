@@ -1,0 +1,413 @@
+/* ==========================================================================
+   Navigation
+
+   Default Mendix Navigation Bar
+========================================================================== */
+.mx-navbar {
+	border-radius: 0;
+	margin: 0;
+	border-style: none;
+	background-color: $brand-default-dark;
+
+	ul.nav { 
+
+		margin: 0; // weird -margin if screen gets small (bootstrap)
+		/* Navigation item */
+		> li.mx-navbar-item > a {
+			font-family: $font-primary;
+            font-weight: 400;
+			border-radius: 0;
+			padding: 15px 20px;
+			color: $text-light;
+			font-size: 18px;
+			vertical-align: middle;
+
+			/* Dropdown arrow */
+			.caret {
+				border-top-color: text-light;
+				border-bottom-color: $text-light;
+			}
+
+			&:hover,
+			&:focus,
+			&.active {
+				background-color: $brand-default-light;
+				color: $text-dark;
+				text-decoration: none;
+
+				.caret {
+					border-top-color: $text-dark;
+					border-bottom-color: $text-dark;
+				}
+			}
+			&.active {
+            	background-color: $brand-default-light;
+                color: $gray-light;
+            }
+
+			/* Dropdown */
+			.mx-navbar-submenu:before {
+				position: absolute;
+				top: -9px;
+				left: 15px;
+				width: 0;
+				height: 0;
+				border-width: 0 9px 9px 9px;
+				border-style: solid;
+				border-color: transparent transparent $brand-default-dark transparent;
+				content: "";
+				transform: rotate(360deg);
+				-webkit-transform: rotate(360deg);
+			}
+
+			// Image
+			img {
+				width: 20px; // Default size (so it looks good)
+				height: auto;
+			}
+
+			.glyphicon {
+					vertical-align: middle;
+					font-size: 14px;
+					top: -1px;
+				}
+		}
+
+		/* When hovering or the dropdown is open */
+		> .mx-navbar-item > a:hover, 
+		> .mx-navbar-item > a:focus,
+		> .mx-navbar-item.active a,
+		> .mx-navbar-item.open > a, 
+		> .mx-navbar-item.open > a:hover, 
+		> .mx-navbar-item.open > a:focus {
+			background-color: $brand-default-light;
+			color: $text-dark;
+			text-decoration: none;
+
+			.caret {
+				border-top-color: $text-dark;
+				border-bottom-color: $text-dark;
+			}
+		}
+		> .mx-navbar-item.open .dropdown-menu > li.mx-navbar-subitem.active a {
+			background-color: $brand-default-dark;
+			color: $text-light;
+
+			.caret {
+				border-top-color: $text-light;
+				border-bottom-color: $text-light;
+			}
+        }
+	}
+
+	@media (max-width: $screen-sm) {
+		ul.nav > li.mx-navbar-item > a {
+			padding: 10px 20px;
+		}
+		.mx-navbar-item.open .dropdown-menu {
+			background-color: $brand-default-light;
+			border-radius: 0;
+			padding: 0;
+			
+			> li.mx-navbar-subitem > a {
+				font-family: $font-primary;
+                font-weight: 400;
+				padding: 10px 20px;
+				border-radius: 0;
+				color: $text-dark;
+				font-size: $font-average;
+
+				&:hover,
+				&:focus {
+					color: $text-light;
+					background-color: $brand-default-dark;
+				}
+
+				&.active {
+					color: $text-light;
+					background-color: $brand-default-dark;
+				}
+			}
+		}
+	}
+
+	/* remove focus */
+	&:focus {
+		outline: 0;
+	}
+}
+
+
+/* ==========================================================================
+   Navigation
+
+   Default Mendix Navigation Tree
+========================================================================== */
+.mx-navigationtree {
+	background-color: $brand-default-dark;
+
+	/* Every navigation item */
+	.navbar-inner ul {
+		margin: 0;
+		padding-left: 0;
+
+		li {
+			padding: 0;
+			border-style: none;
+
+			a {
+				font-family: $font-primary;
+                font-weight: 400;
+				display: block;
+				padding: 15px 20px 15px 16px;
+				border-bottom: 1px solid $brand-default;
+				border-radius: 0;
+				color: $text-light;
+				text-shadow: none;
+				font-size: $font-average;
+				vertical-align: middle;
+				background-color: $brand-default-dark;
+				border-left: 4px solid transparent;
+
+				.caret {
+					border-top-color: $text-light;
+					border-bottom-color: $text-light;
+				}
+
+				img {
+					margin-right: 4px;
+					width: 20px; // Default size
+					height: auto;
+				}
+
+				.glyphicon {
+					vertical-align: middle;
+					font-size: $font-average;
+					top: -1px;
+				}
+			}
+
+			a:hover,
+			a:focus,
+			a.active {
+				background-color: $brand-default;
+				color: $text-dark;
+				text-decoration: none;
+
+				.caret {
+					border-top-color: $text-dark;
+					border-bottom-color: $text-dark;
+				}
+			}
+
+            a.active {
+            	border-left-color: $brand-default-light;
+            	color: $text-dark;
+            	background-color: $brand-default;
+            }
+		}
+	}
+
+	/* Sub navigation item specific */
+	li.mx-navigationtree-has-items {
+		> ul {
+			margin: 0;
+			padding-left: 0;
+			background-color: $brand-default;
+
+			li {
+				margin: 0;
+				padding: 0;
+				a {
+					font-family: $font-primary;
+                    font-weight: 400;
+					color: $gray-light;
+					font-size: calc($font-average - 2px);
+					background-color: $brand-default;
+					padding: 12px 20px 12px 25px;
+					border: 0;
+
+					&:hover,
+					&:focus,
+					&.active {
+						color: $text-dark;
+						background-color: $brand-default-dark;
+					}
+					&.active {
+		            	border: 0;
+		            	color: $text-dark;
+		            	background-color: $brand-default-dark;
+		            }
+				}
+			}
+		}
+	}
+
+	/* remove focus */
+	&:focus {
+		outline: 0;
+	}
+}
+
+
+/* Content Centerd text and icons */
+
+.mx-navigationtree.nav-content-center-text-icons {
+	.navbar-inner ul {
+		a {
+			text-align: center;
+			.glyphicon {
+				display: block;
+  				margin-bottom: 5px;
+			}
+		}
+	}
+}
+
+/* Content Centerd icons only */
+
+.mx-navigationtree.nav-content-center {
+	.navbar-inner ul {
+		a {
+			text-align: center;
+			.glyphicon {
+
+			}
+		}
+	}
+}
+
+
+/* ==========================================================================
+   Navigation
+
+   Default Mendix Simple Menu Bar
+========================================================================== */
+.mx-menubar {
+	padding: 0;
+	background-color: $brand-default-dark;
+	ul.mx-menubar-list {
+		width: 100%;
+		min-height: 50px;
+		table-layout: fixed;
+		li.mx-menubar-item {
+			margin: 0;
+			width: 100%;
+			display: inline-block;
+			a {
+				font-family: $font-primary;
+                font-weight: 400;
+				border-radius: 0;
+				color: $text-light;
+				font-size: $font-average;
+				padding: 0 8px;
+				text-align: center;
+				line-height: 50px;
+				overflow: hidden;
+				display: block;
+				vertical-align: middle;
+
+				.glyphicon {
+					vertical-align: middle;
+					font-size: $font-average;
+					top: -1px;
+				}
+			}
+			a:hover,
+			a:focus,			
+			&:hover a,
+			&:focus a,
+			&.active a {
+				background-color: $brand-default-light;
+				color: $text-dark;
+				text-decoration: none;
+			}
+			&.active a {
+            	color: $text-dark;
+            	background-color: $brand-default-light;
+            }
+		}
+	}
+
+	/* Two menu items */
+	&.menubar-col-6 ul.mx-menubar-list li.mx-menubar-item {
+		width: 50%;
+	}
+	/* Three menu items */
+	&.menubar-col-4 ul.mx-menubar-list li.mx-menubar-item {
+		width: 33.33333333%;
+	}
+	/* Four menu items */
+	&.menubar-col-3 ul.mx-menubar-list li.mx-menubar-item {
+		width: 25%;
+	}
+	/* Five menu items */
+	&.menubar-col-2 ul.mx-menubar-list li.mx-menubar-item {
+		width: 20%;
+	}
+
+	/* remove focus */
+	&:focus {
+		outline: 0;
+	}
+}
+
+/* text and icons centerd */
+.mx-menubar.bottom-nav-text-icons {
+	ul.mx-menubar-list {
+		li.mx-menubar-item {
+			a {
+				line-height: normal;
+		  		padding: 8px 8px 6px 8px;
+				.glyphicon {
+					display: block;
+		  			font-size: 18px;
+		  			margin-bottom: 4px;
+				}
+			}
+		}
+	}
+
+}
+
+/* Vertical variation specifics */
+.mx-menubar-vertical {
+	background-color: $brand-default-dark;
+	ul.mx-menubar-list {
+		li.mx-menubar-item {
+			a {
+				color: $text-light;
+				font-size: $font-average;
+				border-bottom: 1px solid $brand-default;
+
+				.glyphicon {
+					vertical-align: middle;
+					font-size: $font-average;
+					top: -1px;
+				}
+
+				&:hover,
+				&:focus,
+				&.active {
+					background-color: $brand-default-light;
+					color: $text-dark;
+					text-decoration: none;
+				}
+				&.active {
+	            	color: $text-dark;
+	            	background-color: $brand-default-light;
+	            }
+			}
+		}
+	}
+}
+
+/* Horizontal variation specifics */
+.mx-menubar-horizontal {
+	ul.mx-menubar-list {
+		li.mx-menubar-item {
+			width: auto;
+		}
+	}
+}
+

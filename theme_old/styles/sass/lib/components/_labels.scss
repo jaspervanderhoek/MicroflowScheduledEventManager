@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Labels
+
+   Default labels combined with Bootstrap labels
+========================================================================== */
+.label {
+	font-family: $font-primary;
+    font-weight: 600; 
+	border-radius: .25em;
+	display: inline;
+	padding: .2em .6em .3em !important;
+	color: #fff;
+	vertical-align: baseline;
+	text-align: center;
+	white-space: nowrap; 
+	font-size: 100%;
+	line-height: 1;
+}
+.label-default { 
+	background-color: $brand-default-light; 
+	color: $brand-default;
+}
+.label-primary { 
+	background-color: $brand-primary-light; 
+	color: $brand-primary;
+}
+.label-success { 
+	background-color: $brand-success-light; 
+	color: $brand-success;
+}
+.label-info { 
+	background-color: $brand-info-light; 
+	color: $brand-info;
+}
+.label-warning { 
+	background-color: $brand-warning-light; 
+	color: $brand-warning;
+}
+.label-danger { 
+	background-color: $brand-danger-light; 
+	color: $brand-danger;
+}

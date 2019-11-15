@@ -25,7 +25,7 @@ public class BuildCronExpression extends CustomJavaAction<java.lang.String>
 		this.__action = action;
 	}
 
-	@Override
+	@java.lang.Override
 	public java.lang.String executeAction() throws Exception
 	{
 		this.action = __action == null ? null : scheduler.proxies.ScheduledAction.initialize(getContext(), __action);
@@ -38,7 +38,7 @@ public class BuildCronExpression extends CustomJavaAction<java.lang.String>
 	/**
 	 * Returns a string representation of this action
 	 */
-	@Override
+	@java.lang.Override
 	public java.lang.String toString()
 	{
 		return "BuildCronExpression";

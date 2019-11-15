@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Navigation List
+
+   Default Mendix Navigation List Widget. A navigation list can be used to attach an action to an entire row. Such a row is called a navigation list item
+========================================================================== */
+.mx-navigationlist {
+	padding: 0;
+	margin: 0;
+	
+	.mx-navigationlist-item {
+		padding: 15px 20px 15px 16px;
+		border-left: 4px solid transparent;
+		border-bottom: 1px solid $brand-default;
+		border-top: none;
+		border-radius: 0;
+		background-color: $gray-dark;
+		label {
+			font-family: $font-primary;
+            font-weight: 400;
+			color: $text-light;
+			font-size: $font-average;
+		}
+		&:hover,
+		&:focus,
+		&.active {
+			background-color: $brand-default;
+			label {
+				color: $text-dark;
+			}
+		}
+		&.active {
+           	border-left-color: $brand-default-light;
+           	color: $text-dark;
+           	background-color: $brand-default;
+        }
+	}
+}

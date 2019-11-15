@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Buttons
+
+   Default Bootstrap and Mendix Buttons
+========================================================================== */
+.btn,
+.mx-button {
+
+    /* MXID / Bootstrap values for when used in non-mendix apps */
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    font-family: $font-primary;
+    font-weight: 400;
+    
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    border-radius: 4px;
+    box-shadow: none;
+    padding: round(0.6 * 14px) round(1 * 14px);
+    background-color: $brand-default-light;
+    color: $brand-default-dark;
+    text-shadow: none;
+    font-size: 14px;
+    line-height: $line-height-base;
+
+    &:hover,
+    &:focus,
+    &:active {
+        box-shadow: none;
+        outline: none;
+    }
+}
+
+// Mendix button link
+.mx-link {
+    padding: 0;
+    color: $brand-info;
+
+    a {
+        color: inherit;
+    }
+}
+
+// Images in buttons
+.btn,
+.mx-button,
+.mx-link {
+    img {
+        margin-top: -1px;
+        //height: auto; // MXUI override who set the height on 16px default
+        height:20px;
+    }
+}
+
+// IE 8 only (mxui overwrites)
+.dj_ie8 .mx-link {
+    margin-right: 0;
+    white-space: normal;
+}
+
+
+// Buttons Alternate Style
+.btn-default {
+    @include button-variant($text-dark, $brand-default, $brand-default-lighter);
+}
+.btn-primary {
+    @include button-variant($text-light, $brand-primary, $brand-primary);
+}
+.btn-inverse {
+    @include button-variant($text-light, $brand-inverse, $brand-inverse);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-color: lighten($brand-inverse, 10%);
+        border-color: lighten($brand-inverse, 10%);
+    }
+}
+// Success appears as green
+.btn-success {
+    @include button-variant($text-light, $brand-success, $brand-success);
+}
+// Info appears as blue-green
+.btn-info {
+    @include button-variant($text-light, $brand-info, $brand-info);
+}
+// Warning appears as orange
+.btn-warning {
+    @include button-variant($text-dark, $brand-warning, $brand-warning);
+}
+// Danger and error appear as red
+.btn-danger {
+    @include button-variant($text-light, $brand-danger, $brand-danger);
+}
+// Button as link but with padding 
+.btn-link {
+    border: 0;
+    background-color: transparent;
+    color: $brand-info;
+
+    &:hover {
+        background-color: transparent;
+        color: $brand-info-dark;
+    }
+}
+/* Buttons appear disabled */
+.btn-disabled {
+    opacity: 0.65;
+    filter: alpha(opacity=65); /* For IE8 and earlier */
+
+    cursor: not-allowed;
+    pointer-events: none;
+}
+// Transparent
+.btn-transparent,
+.btn-transparent:hover,
+.btn-transparent:focus {
+    border-style: none;
+    background-color: transparent;
+}
+
+// Buttons Sizes
+.btn-lg {
+    font-size: 18px;
+    padding: round(0.6 * 18px) round(1 * 18px);  // only for buttons
+    img {
+        height: 16px + 4px;
+    }
+}
+.btn-sm {
+    font-size: 10px;
+    padding: round(0.6 * 10px) round(1 * 10px); 
+    img {
+        height: 10px + 4px;
+    }
+}
+
+
+/* Buttons Image */
+.btn-image {
+    padding: 0;
+    border-style: none;
+    background-color: transparent;
+    vertical-align: middle; 
+
+    img {
+        height: auto; // Image set height
+        display: block; // or else the button doesn't get a width 
+    }
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+
+/* Buttons Position */
+.btn-right {
+    float: right;
+}
+.btn-left {
+    float: left;
+}
+
+/* Buttons Attached */
+.btn-attached-right {
+    margin-left: 5px;
+}
+.btn-attached-left {
+    margin-right: 5px;
+}
+.btn-attached-bottom {
+    margin-top: 5px;
+}
+.btn-attached-top {
+    margin-bottom: 5px;
+}

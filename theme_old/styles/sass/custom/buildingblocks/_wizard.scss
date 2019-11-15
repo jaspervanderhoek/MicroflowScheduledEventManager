@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Wizard
+
+   Styling for Wizard (Steps/Numbers)
+========================================================================== */
+.wizard {
+	/* Wizard line between steps */
+	&:before {
+		/* Styles here */
+	}
+}
+.wizard-step {
+	/* Styles here */
+}
+.wizard-step-number {
+	border-radius: 50%;
+	line-height: 3em;
+}
+.wizard-step-number-active {
+	/* Styles here */
+}
+.wizard-step-number-visited {
+	/* Styles here */
+}
+.wizard-step-title {
+	/* Styles here */
+}
+
+/* Phone Specific Styling */
+.profile-phone .wizard {
+	&:before {
+		/* Styles here */
+	}
+	.wizard-step-number {
+		line-height: 1em;
+    	padding: 0;
+	}
+}
