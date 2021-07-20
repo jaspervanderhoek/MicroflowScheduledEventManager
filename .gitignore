@@ -6,6 +6,8 @@ javasource/mxmodelreflection/
 javasource/core/
 javasource/com/
 theme/*
+GPUCache/
+theme_old/
 
 .mendix-cache/*
 .classpath
