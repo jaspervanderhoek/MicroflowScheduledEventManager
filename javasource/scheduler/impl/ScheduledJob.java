@@ -1,7 +1,5 @@
 package scheduler.impl;
 
-import java.util.HashMap;
-
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -41,12 +39,8 @@ public class ScheduledJob implements Job {
 		try {
 			dataMap.putAsString(ExcutionAttempts, 0);
 
-
 			context.startTransaction();
-			HashMap<String, Object> params = new HashMap<String, Object>();
-			params.put("ScheduledAction", action);
-
-			Core.execute(context, mfName, params);
+			Core.microflowCall(mfName).withParam("ScheduledAction", action).execute(context);
 			context.endTransaction();
 		}
 		catch( Throwable t ) {
