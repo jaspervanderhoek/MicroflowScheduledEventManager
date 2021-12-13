@@ -8,6 +8,10 @@ Configure what happens if an action is still running at the next schedule, if co
  The actions will automatically be executed on the 'cluster manager' only. Sometimes the platform needs a couple of minutes to determine the cluster manager, so it could happen that it takes up to 5 minutes before the scheduled events start.
 <br><br>
 
+***Log4j CVE:***
+*This module is depending on the [Quartz Scheduler](http://www.quartz-scheduler.org/) library which uses log4j. Specifically this module includes Log4j-1.2.16, and as per the CVE this vulnerability is only applicable for Apache log4j between versions 2.0 and 2.14.1 therefore **there are no known vulnerabilities in this module**.*
+<br><br>
+
 ## Typical usage scenario
 Schedule Microflows, compatible with an High Availability architecture, if you want to run your microflows only once and allow for fail-over you can use this module to configure your actions.
 <br>
