@@ -8,8 +8,15 @@ Configure what happens if an action is still running at the next schedule, if co
  The actions will automatically be executed on the 'cluster manager' only. Sometimes the platform needs a couple of minutes to determine the cluster manager, so it could happen that it takes up to 5 minutes before the scheduled events start.
 <br><br>
 
-***Log4j CVE:***
-*This module is depending on the [Quartz Scheduler](http://www.quartz-scheduler.org/) library which uses log4j. Specifically this module includes Log4j-1.2.16, and as per the CVE this vulnerability is only applicable for Apache log4j between versions 2.0 and 2.14.1 therefore **there are no known vulnerabilities in this module**.*
+### Known CVEs:
+
+There are currently 4 CVEs on the Log4j library which is included in this module. The primary library used by this module is the [Quartz Scheduler](http://www.quartz-scheduler.org/) which depends on log4j. Specifically this module includes Log4j-1.2.16.
+
+[2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228). This CVE only applies on versions 2-beta - 2.15 and is not relevant to v1.2.16<br>
+[2021-44228](https://security.snyk.io/vuln/SNYK-JAVA-LOG4J-2316893) The exploit on V1.x has only been found when leveraging the JMSAppender and having access to the topic binding name. Neither are implemented, even in combination with using the Ldap module the exact exploit can not be leveraged.<br>
+[2020-9488](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9488) is specific to a MitM attach when using the SMTP log appender, which is not implemented for this library or module. This CVE is therefore not exploitable.  <br>
+[2019-17571](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17571) Deserialization of untrusted data, the only data passes from the module through Quartz through info/debug/trace messages into log4j is the 'InternalId' attribute, all other logging happens through standard Mendix logging. This CVE is therefore not exploitable.  <br>
+**None of these vulnerabilities pose any risk to your application or environment**
 <br><br>
 
 ## Typical usage scenario
