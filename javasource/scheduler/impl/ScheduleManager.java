@@ -290,7 +290,8 @@ public class ScheduleManager {
 
 		return false;
 	}
-
+	
+	// PBornier Update
 	protected Trigger setupActionTrigger( ActionConfig config, IMendixObject monitor ) throws ParseException, CoreException {
 		String expression = getCronExpression(config);
 
