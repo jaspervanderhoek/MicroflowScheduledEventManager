@@ -10,6 +10,8 @@ import org.quartz.TriggerListener;
 
 import com.mendix.core.Core;
 import com.mendix.logging.ILogNode;
+// PBornier Update
+import com.mendix.systemwideinterfaces.core.IMendixIdentifier;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class MxSchedulerListener implements JobListener, TriggerListener {
@@ -84,6 +86,8 @@ public class MxSchedulerListener implements JobListener, TriggerListener {
 	protected void evalMonitorInfo( JobExecutionContext jobContext ) {
 		JobDataMap dataMap = jobContext.getJobDetail().getJobDataMap();
 		IMendixObject monitor = (IMendixObject) dataMap.get(ScheduledJob.Monitor);
+		// PBornier Update
+		IMendixIdentifier instance = (IMendixIdentifier) dataMap.get(ScheduledJob.InstanceId);
 
 		ScheduleManager.updateMonitorInformation(monitor, jobContext.getPreviousFireTime(), jobContext.getScheduledFireTime(),
 				jobContext.getFireTime(), jobContext.getNextFireTime(), jobContext.getTrigger());
